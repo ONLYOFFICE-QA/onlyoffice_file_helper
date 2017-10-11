@@ -8,6 +8,7 @@ require 'onlyoffice_file_helper/linux_helper'
 require 'onlyoffice_file_helper/string_helper'
 
 module OnlyofficeFileHelper
+  # Stuff for working with Files
   class FileHelper
     class << self
       # Return name of file from full path

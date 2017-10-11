@@ -1,4 +1,5 @@
 module OnlyofficeFileHelper
+  # Helper for Strings
   class StringHelper
     class << self
       def generate_random_string(length_string = 32)

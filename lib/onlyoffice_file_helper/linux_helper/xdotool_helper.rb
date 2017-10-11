@@ -1,6 +1,6 @@
-# Class for working with Xdotool
-# Performs actions with x-system
 module OnlyofficeFileHelper
+  # Class for working with Xdotool
+  # Performs actions with x-system
   module XdotoolHelper
     # Get window id by it's title
     # @return [Fixnum] id of window
