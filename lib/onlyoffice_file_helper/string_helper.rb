@@ -35,29 +35,6 @@ module OnlyofficeFileHelper
         end
       end
 
-      def round(value, count_of_digits_after_dot = 0, side = nil)
-        return value if count_of_digits_after_dot > 50
-
-        rounded_value = value.to_f
-        i = rounded_value < 0 ? -1.0 : 1.0
-        case side
-        when 'down'
-          (rounded_value * 10**count_of_digits_after_dot).to_i.to_f / (10.0**count_of_digits_after_dot)
-        when 'up'
-          (rounded_value * 10**count_of_digits_after_dot + 1).to_i.to_f / (10.0**count_of_digits_after_dot)
-        else
-          if count_of_digits_after_dot.zero?
-            if rounded_value.abs.divmod(1).last >= 0.5
-              (rounded_value + i * 1.0).to_i
-            else
-              rounded_value.to_i
-            end
-          else
-            round(rounded_value * 10**count_of_digits_after_dot) / (10.0**count_of_digits_after_dot)
-          end
-        end
-      end
-
       def to_bool(string)
         str = string.to_s
         if str.casecmp('false').zero?
