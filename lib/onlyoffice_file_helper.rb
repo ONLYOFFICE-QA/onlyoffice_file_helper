@@ -37,9 +37,7 @@ module OnlyofficeFileHelper
           OnlyofficeLoggerHelper.log("Waiting for #{timer} seconds from #{timeout}")
           sleep 1
           timer += 1
-          if timer > timeout
-            raise "Timeout #{timeout} for downloading file #{path} is exceed"
-          end
+          raise "Timeout #{timeout} for downloading file #{path} is exceed" if timer > timeout
         end
         sleep 1
         timer <= timeout
