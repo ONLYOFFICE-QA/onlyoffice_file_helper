@@ -18,7 +18,7 @@ RSpec.describe OnlyofficeFileHelper::StringHelper do
 
   it 'StringHelper.get_result_string_of_comparison for digits' do
     expect(OnlyofficeFileHelper::StringHelper.get_result_string_of_comparison('Digits',
-                                                                              0, 0)).to eq('')
+                                                                              0.5, 0.5)).to eq('')
   end
 
   it 'StringHelper.get_result_string_of_comparison for different strings' do
