@@ -16,6 +16,16 @@ RSpec.describe OnlyofficeFileHelper::StringHelper do
                                                                               'Data', 'Data')).to eq('')
   end
 
+  it 'StringHelper.get_result_string_of_comparison for digits' do
+    expect(OnlyofficeFileHelper::StringHelper.get_result_string_of_comparison('Digits',
+                                                                              0, 0)).to eq('')
+  end
+
+  it 'StringHelper.get_result_string_of_comparison for different strings' do
+    expect(OnlyofficeFileHelper::StringHelper.get_result_string_of_comparison('Test',
+                                                                              'Data', 'Data2')).not_to be_empty
+  end
+
   it 'StringHelper.to_bool check true' do
     expect(OnlyofficeFileHelper::StringHelper.to_bool('true')).to be_truthy
   end
