@@ -17,4 +17,8 @@ RSpec.describe OnlyofficeFileHelper::LinuxHelper do
   it 'get_computer_name' do
     expect(OnlyofficeFileHelper::LinuxHelper.get_computer_name).not_to be_empty
   end
+
+  it 'my_external_ip' do
+    expect(OnlyofficeFileHelper::LinuxHelper.my_external_ip).not_to be_empty
+  end
 end
