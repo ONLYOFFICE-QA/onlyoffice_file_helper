@@ -31,6 +31,6 @@ RSpec.describe OnlyofficeFileHelper::LinuxHelper do
   end
 
   it 'user_dir' do
-    expect(OnlyofficeFileHelper::LinuxHelper.user_dir('Download')).to be_empty
+    expect(OnlyofficeFileHelper::LinuxHelper.user_dir('Download')).not_to be_empty
   end
 end
