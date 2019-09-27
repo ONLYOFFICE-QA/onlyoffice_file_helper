@@ -84,7 +84,11 @@ RSpec.describe OnlyofficeFileHelper do
 
   it 'wait_file_to_download' do
     file = '/tmp/wait_file_download.file'
-    OnlyofficeFileHelper::FileHelper.output_string_to_file('a', file)
+    File.delete(file) if File.exist?(file)
+    Thread.start do
+      sleep 5
+      OnlyofficeFileHelper::FileHelper.output_string_to_file('a', file)
+    end
     OnlyofficeFileHelper::FileHelper.wait_file_to_download(file)
   end
 
