@@ -13,4 +13,8 @@ RSpec.describe OnlyofficeFileHelper::LinuxHelper do
   it 'get_user_name' do
     expect(OnlyofficeFileHelper::LinuxHelper.get_user_name).not_to be_empty
   end
+
+  it 'get_computer_name' do
+    expect(OnlyofficeFileHelper::LinuxHelper.get_computer_name).not_to be_empty
+  end
 end
