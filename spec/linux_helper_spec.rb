@@ -33,4 +33,8 @@ RSpec.describe OnlyofficeFileHelper::LinuxHelper do
   it 'user_dir' do
     expect(OnlyofficeFileHelper::LinuxHelper.user_dir('Download')).not_to be_empty
   end
+
+  it 'send_button_to_window' do
+    expect(OnlyofficeFileHelper::LinuxHelper.send_button_to_window('Test', 'Escape')).not_to be_nil
+  end
 end
