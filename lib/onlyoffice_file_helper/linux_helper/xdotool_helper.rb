@@ -8,14 +8,6 @@ module OnlyofficeFileHelper
       `xdotool search '#{window_title}'`.to_i
     end
 
-    # Close any window by it's title
-    # @param window_title [String] title of window to close
-    # @return [Nothing]
-    def close_x_window(window_title)
-      window_id = find_window_id(window_title)
-      `xdotool windowkill #{window_id}`
-    end
-
     # Send button to specific window
     # @param window_title [String] title of window to close
     # @param button [String] button to send
