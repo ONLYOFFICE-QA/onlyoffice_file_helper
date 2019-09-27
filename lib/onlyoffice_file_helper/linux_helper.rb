@@ -25,10 +25,6 @@ module OnlyofficeFileHelper
       `id -u -n`
     end
 
-    def self.shared_folder
-      '/mnt/data_share/'
-    end
-
     def self.get_computer_name(ip_to_run = nil)
       computer_name = if ip_to_run.nil?
                         Socket.gethostname
