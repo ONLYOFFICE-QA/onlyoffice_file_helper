@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe OnlyofficeFileHelper do
@@ -51,8 +53,68 @@ RSpec.describe OnlyofficeFileHelper do
       expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/bin').length).to be > 0
     end
 
+    it 'list_file_in_directory with extension' do
+      OnlyofficeFileHelper::FileHelper.create_file_with_content(file_path: '/tmp/file.name', content: 'test_sting')
+      expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/tmp/', 'name').length).to be > 0
+    end
+
     it 'list_file_in_directory empty for non-existing folder' do
       expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/incorrect-path')).to be_empty
     end
+  end
+
+  it 'get_filename' do
+    expect(OnlyofficeFileHelper::FileHelper.get_filename('/usr/share/fonts')).to eq('fonts')
+  end
+
+  describe 'Create Folder' do
+    before do
+      OnlyofficeFileHelper::FileHelper.delete_directory('/tmp/tmp.dir')
+    end
+
+    it 'create_folder' do
+      expect(OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp.dir')).not_to be_nil
+    end
+
+    it 'create_folder second time' do
+      OnlyofficeFileHelper::FileHelper.output_string_to_file('a', '/tmp/tmp.dir')
+      expect(OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp.dir')).to be_truthy
+    end
+  end
+
+  it 'wait_file_to_download' do
+    file = '/tmp/wait_file_download.file'
+    File.delete(file) if File.exist?(file)
+    Thread.start do
+      sleep 5
+      OnlyofficeFileHelper::FileHelper.output_string_to_file('a', file)
+    end
+    OnlyofficeFileHelper::FileHelper.wait_file_to_download(file)
+  end
+
+  it 'delete_directory' do
+    OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp')
+    expect(OnlyofficeFileHelper::FileHelper.delete_directory('/tmp/tmp')).not_to be_nil
+  end
+
+  it 'directory_hash' do
+    expect(OnlyofficeFileHelper::FileHelper.directory_hash('.')).not_to be_nil
+  end
+
+  it 'create_file_with_size' do
+    expect(OnlyofficeFileHelper::FileHelper.create_file_with_size(size: '1K')).not_to be_nil
+  end
+
+  it 'output_string_to_file' do
+    expect(OnlyofficeFileHelper::FileHelper.output_string_to_file('a', '/tmp/out.out')).not_to be_nil
+  end
+
+  it 'read_array_from_file' do
+    OnlyofficeFileHelper::FileHelper.output_string_to_file("a\na", '/tmp/read_array.file')
+    expect(OnlyofficeFileHelper::FileHelper.read_array_from_file('/tmp/read_array.file')).to eq(%w[a a])
+  end
+
+  it 'extract_to_folder' do
+    expect(OnlyofficeFileHelper::FileHelper.extract_to_folder('./spec/data/test.zip')).not_to be_nil
   end
 end

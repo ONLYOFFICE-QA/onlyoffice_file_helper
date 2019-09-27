@@ -1,5 +1,10 @@
 sudo: false
 language: ruby
+addons:
+  apt:
+    packages:
+      - xclip
+      - xdotool
 rvm:
   - ruby-head
   - 2.6
