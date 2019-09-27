@@ -53,6 +53,11 @@ RSpec.describe OnlyofficeFileHelper do
       expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/bin').length).to be > 0
     end
 
+    it 'list_file_in_directory with extension' do
+      OnlyofficeFileHelper::FileHelper.create_file_with_content(file_path: '/tmp/file.name', content: 'test_sting')
+      expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/tmp/', 'name').length).to be > 0
+    end
+
     it 'list_file_in_directory empty for non-existing folder' do
       expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/incorrect-path')).to be_empty
     end
