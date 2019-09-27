@@ -91,11 +91,6 @@ module OnlyofficeFileHelper
         end
       end
 
-      def copy_file(file_path, destination)
-        FileUtils.mkdir_p(destination) unless File.directory?(destination)
-        FileUtils.copy(file_path, destination)
-      end
-
       def directory_hash(path)
         files = []
         Dir.foreach(path).sort.each do |entry|

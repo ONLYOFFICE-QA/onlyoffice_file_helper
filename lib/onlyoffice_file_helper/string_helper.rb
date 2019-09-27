@@ -6,10 +6,6 @@ module OnlyofficeFileHelper
         (0...length_string).map { (('a'..'z').to_a + ('A'..'Z').to_a)[rand(52)] }.join
       end
 
-      def generate_array_random_string(array_length = 10, string_length = 32)
-        (1..array_length).map { generate_random_string(string_length) }
-      end
-
       def generate_random_number(value = nil)
         "#{value}: #{Time.now.nsec}"
       end
