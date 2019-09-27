@@ -21,4 +21,8 @@ RSpec.describe OnlyofficeFileHelper::LinuxHelper do
   it 'my_external_ip' do
     expect(OnlyofficeFileHelper::LinuxHelper.my_external_ip).not_to be_empty
   end
+
+  it 'kill_all_browsers' do
+    expect(OnlyofficeFileHelper::LinuxHelper.kill_all_browsers).not_to be_empty
+  end
 end

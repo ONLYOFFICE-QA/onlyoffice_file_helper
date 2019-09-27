@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'socket'
 require_relative 'linux_helper/xdotool_helper'
 
@@ -11,7 +13,7 @@ module OnlyofficeFileHelper
     end
 
     def self.kill_all(process)
-      LoggerHelper.print_to_log("killall -9 #{process} 2>&1")
+      OnlyofficeLoggerHelper.log("killall -9 #{process} 2>&1")
       `killall -9 #{process} 2>&1`
     end
 
