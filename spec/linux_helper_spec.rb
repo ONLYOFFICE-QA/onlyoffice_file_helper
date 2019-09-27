@@ -9,4 +9,8 @@ RSpec.describe OnlyofficeFileHelper::LinuxHelper do
     OnlyofficeFileHelper::LinuxHelper.download_file(file_url, downloaded.path)
     expect(File.size(downloaded.path)).to be > 1_000
   end
+
+  it 'get_user_name' do
+    expect(OnlyofficeFileHelper::LinuxHelper.get_user_name).not_to be_empty
+  end
 end
