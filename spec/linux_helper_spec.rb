@@ -25,4 +25,12 @@ RSpec.describe OnlyofficeFileHelper::LinuxHelper do
   it 'kill_all_browsers' do
     expect(OnlyofficeFileHelper::LinuxHelper.kill_all_browsers).not_to be_empty
   end
+
+  it 'get_clipboard' do
+    expect(OnlyofficeFileHelper::LinuxHelper.get_clipboard).to be_empty
+  end
+
+  it 'user_dir' do
+    expect(OnlyofficeFileHelper::LinuxHelper.user_dir('Download')).to be_empty
+  end
 end
