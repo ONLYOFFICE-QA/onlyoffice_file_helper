@@ -27,12 +27,9 @@ module OnlyofficeFileHelper
       `id -u -n`
     end
 
-    def self.get_computer_name(ip_to_run = nil)
-      computer_name = if ip_to_run.nil?
-                        Socket.gethostname
-                      else
-                        ip_to_run
-                      end
+    def self.get_computer_name
+      computer_name = Socket.gethostname
+      OnlyofficeLoggerHelper.log("`LinuxHelper.get_computer_name` # #{computer_name}")
       computer_name
     end
 

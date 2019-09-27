@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Refactoring
+
+* Remove unused param from `LinuxHelper.get_computer_name`
+
 ### Cleanup
 
 * Remove unused `LinuxHelper.shared_folder`
