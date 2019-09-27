@@ -82,6 +82,12 @@ RSpec.describe OnlyofficeFileHelper do
     end
   end
 
+  it 'wait_file_to_download' do
+    file = '/tmp/wait_file_download.file'
+    OnlyofficeFileHelper::FileHelper.output_string_to_file('a', file)
+    OnlyofficeFileHelper::FileHelper.wait_file_to_download(file)
+  end
+
   it 'delete_directory' do
     OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp')
     expect(OnlyofficeFileHelper::FileHelper.delete_directory('/tmp/tmp')).not_to be_nil
