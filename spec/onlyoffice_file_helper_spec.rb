@@ -67,8 +67,19 @@ RSpec.describe OnlyofficeFileHelper do
     expect(OnlyofficeFileHelper::FileHelper.get_filename('/usr/share/fonts')).to eq('fonts')
   end
 
-  it 'create_folder' do
-    expect(OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp')).not_to be_nil
+  describe 'Create Folder' do
+    before do
+      OnlyofficeFileHelper::FileHelper.delete_directory('/tmp/tmp.dir')
+    end
+
+    it 'create_folder' do
+      expect(OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp.dir')).not_to be_nil
+    end
+
+    it 'create_folder second time' do
+      OnlyofficeFileHelper::FileHelper.output_string_to_file('a', '/tmp/tmp.dir')
+      expect(OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp.dir')).to be_truthy
+    end
   end
 
   it 'delete_directory' do
@@ -82,5 +93,9 @@ RSpec.describe OnlyofficeFileHelper do
 
   it 'create_file_with_size' do
     expect(OnlyofficeFileHelper::FileHelper.create_file_with_size(size: '1K')).not_to be_nil
+  end
+
+  it 'output_string_to_file' do
+    expect(OnlyofficeFileHelper::FileHelper.output_string_to_file('a', '/tmp/out.out')).not_to be_nil
   end
 end
