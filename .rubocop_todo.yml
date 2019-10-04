@@ -31,12 +31,6 @@ Naming/AccessorMethodName:
   Exclude:
     - 'lib/onlyoffice_file_helper/linux_helper.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'onlyoffice_file_helper.gemspec'
-
 # Offense count: 48
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
