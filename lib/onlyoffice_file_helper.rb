@@ -74,9 +74,7 @@ module OnlyofficeFileHelper
             files << File.join(path, entry)
           end
         end
-        files.keep_if do |current|
-          current.end_with?('_spec.rb')
-        end
+        files.keep_if { |current| current.end_with?('_spec.rb') }
         files
       end
 
