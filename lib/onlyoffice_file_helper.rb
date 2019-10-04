@@ -83,11 +83,7 @@ module OnlyofficeFileHelper
         Find.find(directory) do |path|
           next if FileTest.directory?(path)
 
-          if extension.nil?
-            paths << path
-          elsif File.extname(path) == ".#{extension}"
-            paths << path
-          end
+          paths << path if extension.nil? || File.extname(path) == ".#{extension}"
         end
         paths
       rescue Errno::ENOENT
