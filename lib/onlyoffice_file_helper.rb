@@ -75,14 +75,10 @@ module OnlyofficeFileHelper
 
         path_to_extract += '/' unless path_to_extract[-1] == '/'
         path_to_file = path_to_extract + File.basename(path_to_archive)
-        # unless File.exist?(path_to_file)
-        #  FileUtils.cp path_to_archive, path_to_extract
-        # end
         Zip::File.open(path_to_file) do |zip_file|
           zip_file.each do |file|
             file_path = File.join(path_to_extract, file.name)
-            a = File.dirname(file_path)
-            create_folder(a)
+            create_folder(File.dirname(file_path))
             zip_file.extract(file, file_path)
           end
         end
