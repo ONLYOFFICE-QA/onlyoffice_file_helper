@@ -23,19 +23,25 @@ module OnlyofficeFileHelper
       kill_all('opera')
     end
 
-    def self.get_user_name
+    def self.user_name
       `id -u -n`
     end
 
-    def self.get_computer_name
+    singleton_class.send(:alias_method, :get_user_name, :user_name)
+
+    def self.computer_name
       computer_name = Socket.gethostname
       OnlyofficeLoggerHelper.log("`LinuxHelper.get_computer_name` # #{computer_name}")
       computer_name
     end
 
-    def self.get_clipboard
+    singleton_class.send(:alias_method, :get_computer_name, :computer_name)
+
+    def self.clipboard_content
       `xclip -o`
     end
+
+    singleton_class.send(:alias_method, :get_clipboard, :clipboard_content)
 
     # Get user dirs specified by `xdg-user-dir`
     # @param name [Symbol, String] name of user dir
