@@ -6,6 +6,7 @@ require 'open-uri'
 require 'onlyoffice_logger_helper'
 require 'find'
 require 'onlyoffice_file_helper/create_methods'
+require 'onlyoffice_file_helper/directory_methods'
 require 'onlyoffice_file_helper/read_methods'
 require 'onlyoffice_file_helper/version'
 require 'onlyoffice_file_helper/linux_helper'
@@ -22,10 +23,6 @@ module OnlyofficeFileHelper
         name = Pathname.new(file_path).basename
         name = File.basename(name, File.extname(name)) unless keep_extension
         name.to_s
-      end
-
-      def delete_directory(path)
-        FileUtils.rm_rf(path) if Dir.exist?(path)
       end
 
       def wait_file_to_download(path, timeout = 300)
@@ -60,34 +57,6 @@ module OnlyofficeFileHelper
         File.open(file_name, 'a+') do |f1|
           f1.write(string)
         end
-      end
-
-      def directory_hash(path)
-        files = []
-        Dir.foreach(path).sort.each do |entry|
-          next if %w[.. .].include?(entry)
-
-          full_path = File.join(path, entry)
-          if File.directory?(full_path)
-            files += directory_hash(full_path)
-          else
-            files << File.join(path, entry)
-          end
-        end
-        files.keep_if { |current| current.end_with?('_spec.rb') }
-        files
-      end
-
-      def list_file_in_directory(directory, extension = nil)
-        paths = []
-        Find.find(directory) do |path|
-          next if FileTest.directory?(path)
-
-          paths << path if extension.nil? || File.extname(path) == ".#{extension}"
-        end
-        paths
-      rescue Errno::ENOENT
-        []
       end
 
       # Get line count in file
