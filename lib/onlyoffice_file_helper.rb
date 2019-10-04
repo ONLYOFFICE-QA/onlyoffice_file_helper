@@ -15,6 +15,10 @@ require 'onlyoffice_file_helper/string_helper'
 module OnlyofficeFileHelper
   # Stuff for working with Files
   class FileHelper
+    extend CreateMethods
+    extend DirectoryMethods
+    extend ReadMethods
+
     class << self
       # Return name of file from full path
       # @param [true, false] keep_extension keep extension in result?
