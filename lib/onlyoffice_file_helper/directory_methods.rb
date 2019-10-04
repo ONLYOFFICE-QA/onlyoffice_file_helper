@@ -13,11 +13,7 @@ module OnlyofficeFileHelper
         next if %w[.. .].include?(entry)
 
         full_path = File.join(path, entry)
-        if File.directory?(full_path)
-          files += directory_hash(full_path)
-        else
-          files << File.join(path, entry)
-        end
+        files = root_dir_hash(files, full_path)
       end
       files.keep_if { |current| current.end_with?('_spec.rb') }
       files
@@ -33,6 +29,17 @@ module OnlyofficeFileHelper
       paths
     rescue Errno::ENOENT
       []
+    end
+
+    private
+
+    def root_dir_hash(files, path)
+      if File.directory?(path)
+        files += directory_hash(path)
+      else
+        files << path
+      end
+      files
     end
   end
 end
