@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficeFileHelper
   # Class for working with Xdotool
   # Performs actions with x-system

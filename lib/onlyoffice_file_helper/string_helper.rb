@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficeFileHelper
   # Helper for Strings
   class StringHelper
@@ -19,15 +21,10 @@ module OnlyofficeFileHelper
         if first_element.is_a?(Float) && second_element.is_a?(Float)
           difference = (first_element - second_element).abs
           difference >= accuracy ? "Difference between parameters in #{compare_parameter} is #{difference}" : ''
+        elsif first_element.to_s == second_element.to_s
+          ''
         else
-          first_element ||= 0
-          second_element ||= 0
-
-          if first_element.to_s == second_element.to_s
-            ''
-          else
-            "Difference in #{compare_parameter}. From case: #{first_element}. From result: #{second_element}"
-          end
+          "Difference in #{compare_parameter}. From case: #{first_element}. From result: #{second_element}"
         end
       end
 

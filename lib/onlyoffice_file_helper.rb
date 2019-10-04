@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'zip'
 require 'open-uri'
 require 'onlyoffice_logger_helper'
 require 'find'
+require 'onlyoffice_file_helper/create_methods'
+require 'onlyoffice_file_helper/directory_methods'
+require 'onlyoffice_file_helper/read_methods'
 require 'onlyoffice_file_helper/version'
 require 'onlyoffice_file_helper/linux_helper'
 require 'onlyoffice_file_helper/string_helper'
@@ -10,6 +15,10 @@ require 'onlyoffice_file_helper/string_helper'
 module OnlyofficeFileHelper
   # Stuff for working with Files
   class FileHelper
+    extend CreateMethods
+    extend DirectoryMethods
+    extend ReadMethods
+
     class << self
       # Return name of file from full path
       # @param [true, false] keep_extension keep extension in result?
@@ -20,16 +29,6 @@ module OnlyofficeFileHelper
         name.to_s
       end
 
-      def delete_directory(path)
-        FileUtils.rm_rf(path) if Dir.exist?(path)
-      end
-
-      def create_folder(path)
-        FileUtils.mkdir_p(path) unless File.directory?(path)
-      rescue Errno::EEXIST
-        true
-      end
-
       def wait_file_to_download(path, timeout = 300)
         timer = 0
         OnlyofficeLoggerHelper.log("Start waiting to download file: #{path}")
@@ -37,49 +36,22 @@ module OnlyofficeFileHelper
           OnlyofficeLoggerHelper.log("Waiting for #{timer} seconds from #{timeout}")
           sleep 1
           timer += 1
-          if timer > timeout
-            raise "Timeout #{timeout} for downloading file #{path} is exceed"
-          end
+          raise "Timeout #{timeout} for downloading file #{path} is exceed" if timer > timeout
         end
         sleep 1
         timer <= timeout
       end
 
-      def read_file_to_string(file_name)
-        result_string = ''
-        raise 'File not found: ' + file_name.to_s unless File.exist?(file_name)
-        File.open(file_name, 'r') do |infile|
-          while (line = infile.gets)
-            result_string += line
-          end
-        end
-        result_string
-      end
-
-      def read_array_from_file(file_name)
-        result_array = []
-        return [] unless File.exist?(file_name)
-        File.open(file_name, 'r') do |infile|
-          while (line = infile.gets)
-            result_array << line.sub("\n", '')
-          end
-        end
-        result_array
-      end
-
       def extract_to_folder(path_to_archive,
                             path_to_extract = path_to_archive.chomp(File.basename(path_to_archive)))
         raise 'File not found: ' + path_to_archive.to_s unless wait_file_to_download(path_to_archive)
+
         path_to_extract += '/' unless path_to_extract[-1] == '/'
         path_to_file = path_to_extract + File.basename(path_to_archive)
-        # unless File.exist?(path_to_file)
-        #  FileUtils.cp path_to_archive, path_to_extract
-        # end
         Zip::File.open(path_to_file) do |zip_file|
           zip_file.each do |file|
             file_path = File.join(path_to_extract, file.name)
-            a = File.dirname(file_path)
-            create_folder(a)
+            create_folder(File.dirname(file_path))
             zip_file.extract(file, file_path)
           end
         end
@@ -91,57 +63,6 @@ module OnlyofficeFileHelper
         end
       end
 
-      def directory_hash(path)
-        files = []
-        Dir.foreach(path).sort.each do |entry|
-          next if %w[.. .].include?(entry)
-          full_path = File.join(path, entry)
-          if File.directory?(full_path)
-            files += directory_hash(full_path)
-          else
-            files << File.join(path, entry)
-          end
-        end
-        files.keep_if do |current|
-          current.end_with?('_spec.rb')
-        end
-        files
-      end
-
-      def list_file_in_directory(directory, extension = nil)
-        paths = []
-        Find.find(directory) do |path|
-          next if FileTest.directory?(path)
-          if extension.nil?
-            paths << path
-          elsif File.extname(path) == ".#{extension}"
-            paths << path
-          end
-        end
-        paths
-      rescue Errno::ENOENT
-        []
-      end
-
-      # Create file with content
-      # @param file_path [String] path to created file
-      # @param [String] content content of file
-      # @return [String] path to created file
-      def create_file_with_content(file_path: '/tmp/temp_file.ext', content: '')
-        File.open(file_path, 'w') { |f| f.write(content) }
-        OnlyofficeLoggerHelper.log("Created file: #{file_path} with content: #{content}")
-        file_path
-      end
-
-      # Create empty file with size
-      # @param file_path [String] path to created file
-      # @param size [String] file size, may use binary indexes lik '256M', '15G'
-      # @return [String] path to created file
-      def create_file_with_size(file_path: '/tmp/temp_file.ext', size: '1G')
-        `fallocate -l #{size} #{file_path}`
-        file_path
-      end
-
       # Get line count in file
       # @param file_name [String] name of file
       # @return [Fixnum] count of lines in file
@@ -149,17 +70,6 @@ module OnlyofficeFileHelper
         line_count = `wc -l < #{file_name}`.to_i
         OnlyofficeLoggerHelper.log("Count of lines in '#{file_name}' is #{line_count}")
         line_count
-      end
-
-      # Get line count in file
-      # @param file_name [String] name of file
-      # @param line_number [Fixnum] line of file to get
-      # @return [String] line of file by number
-      def read_specific_line(file_name, line_number)
-        line = `sed '#{line_number + 1}!d' #{file_name}`
-        line.chop! if line[-1] == "\n"
-        OnlyofficeLoggerHelper.log("Lines in '#{file_name}' by number is '#{line}'")
-        line
       end
     end
   end

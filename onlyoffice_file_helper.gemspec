@@ -1,4 +1,6 @@
-$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path('lib', __dir__)
 require 'onlyoffice_file_helper/version'
 Gem::Specification.new do |s|
   s.name = 'onlyoffice_file_helper'
