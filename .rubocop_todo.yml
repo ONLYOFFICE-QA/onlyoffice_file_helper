@@ -37,21 +37,6 @@ Style/ExpandPathArguments:
   Exclude:
     - 'onlyoffice_file_helper.gemspec'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'lib/onlyoffice_file_helper.rb'
-    - 'lib/onlyoffice_file_helper/linux_helper/xdotool_helper.rb'
-    - 'lib/onlyoffice_file_helper/string_helper.rb'
-    - 'lib/onlyoffice_file_helper/version.rb'
-    - 'onlyoffice_file_helper.gemspec'
-    - 'spec/spec_helper.rb'
-
 # Offense count: 48
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

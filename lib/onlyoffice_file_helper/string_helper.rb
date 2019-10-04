@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficeFileHelper
   # Helper for Strings
   class StringHelper
