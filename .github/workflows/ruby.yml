@@ -17,7 +17,8 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby_version }}
     - name: Setup dependencies
-      run: apt -y update && apt -y install xclip xdotool
+      run: sudo apt -y update && \
+           sudo apt -y install xclip xdotool
     - name: Tests
       run: |
         gem install bundler
