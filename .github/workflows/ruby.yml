@@ -18,6 +18,10 @@ jobs:
         ruby-version: ${{ matrix.ruby_version }}
     - name: Setup dependencies
       run: sudo apt-get install xclip xdotool
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.2
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
     - name: Tests
       run: |
         gem install bundler
