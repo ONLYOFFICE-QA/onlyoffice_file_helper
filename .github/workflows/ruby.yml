@@ -1,0 +1,25 @@
+name: Ruby
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        ruby_version: [head, 2.6.x, 2.5.x, 2.4.x, 2.3.x]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby_version }}
+    - name: Setup dependencies
+      run: apt -y update && apt -y install xclip xdotool
+    - name: Run tests with parallel_rspec spec
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake spec
