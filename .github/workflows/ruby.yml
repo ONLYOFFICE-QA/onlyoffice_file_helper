@@ -18,7 +18,7 @@ jobs:
         ruby-version: ${{ matrix.ruby_version }}
     - name: Setup dependencies
       run: apt -y update && apt -y install xclip xdotool
-    - name: Run tests with parallel_rspec spec
+    - name: Tests
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
