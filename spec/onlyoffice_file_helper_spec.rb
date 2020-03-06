@@ -26,7 +26,12 @@ RSpec.describe OnlyofficeFileHelper do
   end
 
   it 'create_file_with_content with custom string with escaping symbols' do
-    string = '<iframe src="https://doc-linux-autotest.teamlab.info/products/files/doceditor.aspx?fileid=2019451&doc=cW5kWFBDUFlRazBRcE5CekJBU3NsVDZhUUcyYS9oMHlhaGQrd3BSVU5qND0_IjIwMTk0NTEi0&action=embedded" height="100%" width="100%" frameborder="0" scrolling="no" allowtransparency></iframe>'
+    string = '<iframe src="https://doc-linux-autotest.teamlab.info'\
+             '/products/files/doceditor.aspx?fileid=2019451&'\
+             'doc=cW5kWFBDUFlRazBRcE5CekJBU3NsVDZhUUcyY'\
+             'S9oMHlhaGQrd3BSVU5qND0_IjIwMTk0NTEi0'\
+             '&action=embedded" height="100%" width="100%" '\
+             'frameborder="0" scrolling="no" allowtransparency></iframe>'
     file_path = OnlyofficeFileHelper::FileHelper.create_file_with_content(file_path: '/tmp/custom2.file.name', content: string)
     expect(File.exist?(file_path)).to be_truthy
     expect(OnlyofficeFileHelper::FileHelper.read_file_to_string(file_path)).to eq(string)
