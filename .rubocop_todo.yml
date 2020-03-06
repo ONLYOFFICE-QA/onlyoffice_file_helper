@@ -12,15 +12,6 @@
 Metrics/BlockLength:
   Max: 106
 
-# Offense count: 16
-# Cop supports --auto-correct.
-# Configuration parameters: SkipBlocks, EnforcedStyle.
-# SupportedStyles: described_class, explicit
-RSpec/DescribedClass:
-  Exclude:
-    - 'spec/linux_helper_spec.rb'
-    - 'spec/string_helper_spec.rb'
-
 # Offense count: 2
 # Configuration parameters: Max.
 RSpec/ExampleLength:
