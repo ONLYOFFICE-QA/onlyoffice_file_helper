@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.2.0 (2020-03-06)
+
 ### Refactoring
 
 * Remove unused param from `LinuxHelper.get_computer_name`
