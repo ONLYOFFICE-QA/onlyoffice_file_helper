@@ -72,25 +72,6 @@ RSpec.describe OnlyofficeFileHelper do
     expect(OnlyofficeFileHelper::FileHelper.get_filename('/usr/share/fonts')).to eq('fonts')
   end
 
-  describe 'FileHelper.wait_file_to_download' do
-    it 'wait_file_to_download will succeed' do
-      file = '/tmp/wait_file_download.file'
-      File.delete(file) if File.exist?(file)
-      Thread.start do
-        sleep 5
-        OnlyofficeFileHelper::FileHelper.output_string_to_file('a', file)
-      end
-      OnlyofficeFileHelper::FileHelper.wait_file_to_download(file)
-    end
-
-    it 'wait_file_to_download will raise on non-existing file' do
-      file = '/tmp/non-existing.file'
-      expect do
-        OnlyofficeFileHelper::FileHelper.wait_file_to_download(file, 5)
-      end.to raise_error(/Timeout/)
-    end
-  end
-
   it 'delete_directory' do
     OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp')
     expect(OnlyofficeFileHelper::FileHelper.delete_directory('/tmp/tmp')).not_to be_nil
