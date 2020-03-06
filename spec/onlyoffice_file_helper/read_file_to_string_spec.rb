@@ -26,7 +26,6 @@ RSpec.describe OnlyofficeFileHelper, '.read_file_to_string' do
              '&action=embedded" height="100%" width="100%" '\
              'frameborder="0" scrolling="no" allowtransparency></iframe>'
     file_path = OnlyofficeFileHelper::FileHelper.create_file_with_content(file_path: '/tmp/custom2.file.name', content: string)
-    expect(File).to exist(file_path)
     expect(OnlyofficeFileHelper::FileHelper.read_file_to_string(file_path)).to eq(string)
   end
 end
