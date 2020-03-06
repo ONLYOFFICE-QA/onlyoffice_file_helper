@@ -30,14 +30,6 @@ RSpec/FilePath:
 RSpec/MultipleExpectations:
   Max: 2
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: Strict, EnforcedStyle, AllowedExplicitMatchers.
-# SupportedStyles: inflected, explicit
-RSpec/PredicateMatcher:
-  Exclude:
-    - 'spec/onlyoffice_file_helper_spec.rb'
-
 # Offense count: 47
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
