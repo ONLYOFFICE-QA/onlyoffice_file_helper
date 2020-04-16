@@ -17,7 +17,10 @@ module OnlyofficeFileHelper
       # @param [String] first_element 1'st element to compare
       # @param [String] second_element 2'st element to compare
       # @return [String] String with result of comparison
-      def get_result_string_of_comparison(compare_parameter, first_element, second_element, accuracy = 0.01)
+      def get_result_string_of_comparison(compare_parameter,
+                                          first_element,
+                                          second_element,
+                                          accuracy = 0.01)
         if first_element.is_a?(Float) && second_element.is_a?(Float)
           difference = (first_element - second_element).abs
           difference >= accuracy ? "Difference between parameters in #{compare_parameter} is #{difference}" : ''
