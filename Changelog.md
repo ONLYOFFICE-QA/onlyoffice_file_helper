@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `RubyHelper.debug?` method
+
 ### Changes
 
 * Reduce some rubocop metrics
