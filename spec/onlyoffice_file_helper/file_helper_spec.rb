@@ -7,22 +7,6 @@ RSpec.describe OnlyofficeFileHelper::FileHelper do
     expect(OnlyofficeFileHelper::VERSION).not_to be nil
   end
 
-  it 'file_line_count zero' do
-    file_path = described_class.create_file_with_content
-    expect(described_class.file_line_count(file_path)).to eq(0)
-  end
-
-  it 'file_line_count not zero' do
-    file_path = described_class.create_file_with_content(content: "a\na\n")
-    expect(described_class.file_line_count(file_path)).to eq(2)
-  end
-
-  it 'file_line' do
-    file_path = described_class.create_file_with_content(content: "a\nb\n")
-    expect(described_class.read_specific_line(file_path, 0)).to eq('a')
-    expect(described_class.read_specific_line(file_path, 1)).to eq('b')
-  end
-
   it 'get_filename' do
     expect(described_class.get_filename('/usr/share/fonts')).to eq('fonts')
   end
