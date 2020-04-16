@@ -10,6 +10,7 @@ require 'onlyoffice_file_helper/directory_methods'
 require 'onlyoffice_file_helper/read_methods'
 require 'onlyoffice_file_helper/version'
 require 'onlyoffice_file_helper/linux_helper'
+require 'onlyoffice_file_helper/ruby_helper'
 require 'onlyoffice_file_helper/string_helper'
 
 module OnlyofficeFileHelper
