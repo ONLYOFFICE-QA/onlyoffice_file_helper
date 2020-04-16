@@ -9,6 +9,7 @@
 ### Changes
 
 * Reduce some rubocop metrics
+* Cleanup `.gemspec` file
 
 ## 0.2.0 (2020-03-06)
 
