@@ -5,6 +5,7 @@
 ### New Features
 
 * Add `RubyHelper.debug?` method
+* Add rake task for release gem to github and rubygems
 
 ### Changes
 
