@@ -4,10 +4,16 @@ module OnlyofficeFileHelper
   # Helper for Strings
   class StringHelper
     class << self
+      # Random string with specific length
+      # @param length_string [Integer] length of string
+      # @return [String] string with length
       def generate_random_string(length_string = 32)
         (0...length_string).map { (('a'..'z').to_a + ('A'..'Z').to_a)[rand(52)] }.join
       end
 
+      # Generate random number with prefix
+      # @param value [String, Integer] prefix to generate
+      # @return [String] result of random number
       def generate_random_number(value = nil)
         "#{value}: #{Time.now.nsec}"
       end
@@ -31,6 +37,9 @@ module OnlyofficeFileHelper
         end
       end
 
+      # Convert string to boolean value
+      # @param string [String] to convert
+      # @return [True, False]
       def to_bool(string)
         str = string.to_s
         if str.casecmp('false').zero?

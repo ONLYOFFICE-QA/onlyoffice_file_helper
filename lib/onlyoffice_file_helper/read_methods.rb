@@ -3,6 +3,9 @@
 module OnlyofficeFileHelper
   # Methods used to read something
   module ReadMethods
+    # Read file content to string
+    # @param file_name [String] file to read
+    # @return [String] result of read
     def read_file_to_string(file_name)
       result_string = ''
       raise 'File not found: ' + file_name.to_s unless File.exist?(file_name)
@@ -15,6 +18,9 @@ module OnlyofficeFileHelper
       result_string
     end
 
+    # Read file content to array, split by newline
+    # @param file_name [String] path to file
+    # @return [Array<String>] result of read
     def read_array_from_file(file_name)
       result_array = []
       return [] unless File.exist?(file_name)

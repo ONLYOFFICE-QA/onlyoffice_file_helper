@@ -7,6 +7,7 @@
 * Add `RubyHelper.debug?` method
 * Add rake task for release gem to github and rubygems
 * Add markdownlint check
+* Add all missing documentation
 
 ### Changes
 

@@ -3,6 +3,9 @@
 module OnlyofficeFileHelper
   # Methods used to create something
   module CreateMethods
+    # Gracefully create folder. Do not fail if already exists
+    # @param path [String] path to folder
+    # @return [Void]
     def create_folder(path)
       FileUtils.mkdir_p(path) unless File.directory?(path)
     rescue Errno::EEXIST

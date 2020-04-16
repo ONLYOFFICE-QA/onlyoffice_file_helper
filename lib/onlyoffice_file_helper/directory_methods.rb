@@ -3,10 +3,16 @@
 module OnlyofficeFileHelper
   # Methods used to work with directories
   module DirectoryMethods
+    # Delete directory only if it exists
+    # @param path [String] directory to delete
+    # @return [Void]
     def delete_directory(path)
       FileUtils.rm_rf(path) if Dir.exist?(path)
     end
 
+    # List of files in directory as array
+    # @param path [String] path to directory
+    # @return [Array<String>] list of all files
     def directory_hash(path)
       files = []
       Dir.foreach(path).sort.each do |entry|
@@ -19,6 +25,10 @@ module OnlyofficeFileHelper
       files
     end
 
+    # List all files in directory
+    # @param directory [String] path to directory
+    # @param extension [String] filter extension
+    # @return [Array<String>] list of all files
     def list_file_in_directory(directory, extension = nil)
       paths = []
       Find.find(directory) do |path|
