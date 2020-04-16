@@ -23,6 +23,6 @@ RSpec.describe OnlyofficeFileHelper::FileHelper,
   it 'create_file_with_content with custom string with escaping symbols' do
     file_path = described_class.create_file_with_content(file_path: '/tmp/custom2.file.name',
                                                          content: iframe_html_string)
-    expect(described_class.read_file_to_string(file_path)).to eq(string)
+    expect(described_class.read_file_to_string(file_path)).to eq(iframe_html_string)
   end
 end
