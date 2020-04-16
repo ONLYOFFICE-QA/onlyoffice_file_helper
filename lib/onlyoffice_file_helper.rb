@@ -13,6 +13,7 @@ require 'onlyoffice_file_helper/linux_helper'
 require 'onlyoffice_file_helper/ruby_helper'
 require 'onlyoffice_file_helper/string_helper'
 
+# Namespace of project
 module OnlyofficeFileHelper
   # Stuff for working with Files
   class FileHelper
@@ -30,6 +31,10 @@ module OnlyofficeFileHelper
         name.to_s
       end
 
+      # Wait for downloading file
+      # @param path [String] path to waiting download
+      # @param timeout [Integer] timeout to wait
+      # @return [True, False] result
       def wait_file_to_download(path, timeout = 300)
         timer = 0
         OnlyofficeLoggerHelper.log("Start waiting to download file: #{path}")
@@ -43,6 +48,10 @@ module OnlyofficeFileHelper
         timer <= timeout
       end
 
+      # Extract archive to folder
+      # @param path_to_archive [String] path of file
+      # @param path_to_extract [String] result path
+      # @return [Void]
       def extract_to_folder(path_to_archive,
                             path_to_extract = path_to_archive.chomp(File.basename(path_to_archive)))
         raise 'File not found: ' + path_to_archive.to_s unless wait_file_to_download(path_to_archive)
@@ -58,6 +67,10 @@ module OnlyofficeFileHelper
         end
       end
 
+      # Save string to file
+      # @param string [String] string to save
+      # @param file_name [String] file to save
+      # @return [Void]
       def output_string_to_file(string, file_name)
         File.open(file_name, 'a+') do |f1|
           f1.write(string)
