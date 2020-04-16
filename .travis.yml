@@ -11,3 +11,8 @@ rvm:
   - 2.5
   - 2.4
   - 2.3
+
+script:
+  - npm install -g markdownlint-cli
+  - markdownlint *.md
+  - rake

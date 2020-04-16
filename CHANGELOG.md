@@ -6,11 +6,13 @@
 
 * Add `RubyHelper.debug?` method
 * Add rake task for release gem to github and rubygems
+* Add markdownlint check
 
 ### Changes
 
 * Reduce some rubocop metrics
 * Cleanup `.gemspec` file
+* Cleanup README.md file
 
 ## 0.2.0 (2020-03-06)
 
@@ -26,4 +28,5 @@
 * Remove unused `LinuxHelper.close_x_window`
 
 ## 0.1.0 (2017-10-11)
+
 * Initial release of `onlyoffice_file_helper` gem
