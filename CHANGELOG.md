@@ -5,6 +5,7 @@
 ### New Features
 
 * Add `dependabot` config
+* Add `rubocop` check to CI
 
 ### Changes
 
