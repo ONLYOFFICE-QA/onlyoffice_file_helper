@@ -9,6 +9,7 @@
 * Add `yard` dev dependency
 * Add `rubocop-rake` dev dependency
 * Add `rubocop-performance` dev dependency
+* Add CI task to check code 100% documented
 
 ### Changes
 
