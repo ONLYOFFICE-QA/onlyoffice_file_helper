@@ -8,7 +8,7 @@ module OnlyofficeFileHelper
     # @return [String] result of read
     def read_file_to_string(file_name)
       result_string = ''
-      raise 'File not found: ' + file_name.to_s unless File.exist?(file_name)
+      raise "File not found: #{file_name}" unless File.exist?(file_name)
 
       File.open(file_name, 'r') do |infile|
         while (line = infile.gets)

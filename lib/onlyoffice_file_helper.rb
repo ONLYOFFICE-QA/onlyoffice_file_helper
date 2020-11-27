@@ -38,7 +38,7 @@ module OnlyofficeFileHelper
       def wait_file_to_download(path, timeout = 300)
         timer = 0
         OnlyofficeLoggerHelper.log("Start waiting to download file: #{path}")
-        until File.exist?(path) && !File.exist?(path + '.part')
+        until File.exist?(path) && !File.exist?("#{path}.part")
           OnlyofficeLoggerHelper.log("Waiting for #{timer} seconds from #{timeout}")
           sleep 1
           timer += 1
@@ -54,7 +54,7 @@ module OnlyofficeFileHelper
       # @return [Void]
       def extract_to_folder(path_to_archive,
                             path_to_extract = path_to_archive.chomp(File.basename(path_to_archive)))
-        raise 'File not found: ' + path_to_archive.to_s unless wait_file_to_download(path_to_archive)
+        raise "File not found: #{path_to_archive}" unless wait_file_to_download(path_to_archive)
 
         path_to_extract += '/' unless path_to_extract[-1] == '/'
         path_to_file = path_to_extract + File.basename(path_to_archive)
