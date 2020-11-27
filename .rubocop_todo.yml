@@ -18,10 +18,3 @@ Metrics/BlockLength:
 Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/onlyoffice_file_helper.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/StringConcatenation:
-  Exclude:
-    - 'lib/onlyoffice_file_helper.rb'
-    - 'lib/onlyoffice_file_helper/read_methods.rb'

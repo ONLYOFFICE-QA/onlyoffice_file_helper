@@ -11,6 +11,7 @@
 * Drop support of `ruby < 2.5` since them EOL'ed
 * Use GitHub Actions instead of TravisCI
 * Freeze dev dependencies versions in `Gemfile.lock`
+* Fix new rubocop issues after update to 1.4.2
 
 ### Fixes
 
