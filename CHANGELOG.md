@@ -6,6 +6,9 @@
 
 * Add `dependabot` config
 * Add `rubocop` check to CI
+* Add `yard` dev dependency
+* Add `rubocop-rake` dev dependency
+* Add `rubocop-performance` dev dependency
 
 ### Changes
 
