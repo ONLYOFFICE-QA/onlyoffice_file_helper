@@ -18,6 +18,10 @@ jobs:
       run: |
         npm install -g markdownlint-cli
         markdownlint *.md
+    - name: Setup system dependencies
+      run: |
+        apt-get -y update
+        apt-get -y install xclip xdotool
     - name: Set up Ruby ${{ matrix.ruby }}
       uses: ruby/setup-ruby@v1
       with:
