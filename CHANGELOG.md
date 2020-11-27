@@ -7,6 +7,10 @@
 * Drop support of `ruby < 2.5` since them EOL'ed
 * Use GitHub Actions instead of TravisCI
 
+### Fixes
+
+* Fix missing `markdownlint` config
+
 ## 0.3.0 (2020-04-16)
 
 ### New Features
