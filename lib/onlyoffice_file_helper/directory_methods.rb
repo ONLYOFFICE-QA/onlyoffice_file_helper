@@ -3,6 +3,9 @@
 module OnlyofficeFileHelper
   # Methods used to work with directories
   module DirectoryMethods
+    # @return [Array<String>] list of linux special dirs
+    LINUX_SPECIAL_DIRS = %w[.. .].freeze
+
     # Delete directory only if it exists
     # @param path [String] directory to delete
     # @return [Void]
@@ -16,7 +19,7 @@ module OnlyofficeFileHelper
     def directory_hash(path)
       files = []
       Dir.foreach(path).sort.each do |entry|
-        next if %w[.. .].include?(entry)
+        next if LINUX_SPECIAL_DIRS.include?(entry)
 
         full_path = File.join(path, entry)
         files = root_dir_hash(files, full_path)
