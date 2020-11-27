@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `dependabot` config
+
 ### Changes
 
 * Drop support of `ruby < 2.5` since them EOL'ed
