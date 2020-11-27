@@ -13,6 +13,11 @@ jobs:
             allow-failures: true
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+    - name: Check markdown files using `markdownlint`
+      run: |
+        npm install -g markdownlint-cli
+        markdownlint *.md
     - name: Set up Ruby ${{ matrix.ruby }}
       uses: ruby/setup-ruby@v1
       with:
@@ -21,11 +26,6 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec parallel_rspec spec
+        bundle exec rake
     - name: Check `simplecov` result coverage
       run: cat coverage/.last_run.json | jq '.result.covered_percent' | grep -q '100'
-    - uses: actions/setup-node@v1
-    - name: Check markdown files using `markdownlint`
-      run: |
-        npm install -g markdownlint-cli
-        markdownlint *.md
