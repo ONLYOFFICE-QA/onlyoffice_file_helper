@@ -6,6 +6,9 @@
 
 * Add `dependabot` config
 * Add `rubocop` check to CI
+* Add `yard` dev dependency
+* Add `rubocop-rake` dev dependency
+* Add `rubocop-performance` dev dependency
 
 ### Changes
 
@@ -13,6 +16,7 @@
 * Use GitHub Actions instead of TravisCI
 * Freeze dev dependencies versions in `Gemfile.lock`
 * Fix new rubocop issues after update to 1.4.2
+* Fix new `rubocop-performance` issue
 
 ### Fixes
 
