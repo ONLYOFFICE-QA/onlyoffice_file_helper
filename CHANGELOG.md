@@ -6,6 +6,7 @@
 
 * Drop support of `ruby < 2.5` since them EOL'ed
 * Use GitHub Actions instead of TravisCI
+* Freeze dev dependencies versions in `Gemfile.lock`
 
 ### Fixes
 

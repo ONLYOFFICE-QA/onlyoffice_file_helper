@@ -1,0 +1,75 @@
+PATH
+  remote: .
+  specs:
+    onlyoffice_file_helper (0.3.0)
+      onlyoffice_logger_helper (~> 1)
+      rubyzip (>= 1, < 3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.0)
+    childprocess (3.0.0)
+    codecov (0.2.12)
+      json
+      simplecov
+    diff-lcs (1.3)
+    docile (1.3.2)
+    iniparse (1.5.0)
+    jaro_winkler (1.5.4)
+    json (2.3.1)
+    onlyoffice_logger_helper (1.0.2)
+    overcommit (0.52.1)
+      childprocess (>= 0.6.3, < 4)
+      iniparse (~> 1.4)
+    parallel (1.19.1)
+    parser (2.7.1.1)
+      ast (~> 2.4.0)
+    rainbow (3.0.0)
+    rake (13.0.1)
+    rexml (3.2.4)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.1)
+      rspec-support (~> 3.9.1)
+    rspec-expectations (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.2)
+    rubocop (0.81.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      rexml
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-rspec (1.38.1)
+      rubocop (>= 0.68.1)
+    ruby-progressbar (1.10.1)
+    rubyzip (2.3.0)
+    simplecov (0.19.1)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.3)
+    unicode-display_width (1.7.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  codecov
+  onlyoffice_file_helper!
+  overcommit
+  rake (~> 13.0)
+  rspec
+  rubocop
+  rubocop-rspec
+
+BUNDLED WITH
+   2.1.4
