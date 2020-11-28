@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ['ONLYOFFICE', 'Pavel Lobashov']
   s.summary = 'ONLYOFFICE Helper Gem for File operation'
   s.description = 'ONLYOFFICE Helper Gem for File operation. Used in QA'
-  s.homepage = 'https://github.com/onlyoffice-testing-robot/onlyoffice_file_helper'
+  s.homepage = 'https://github.com/ONLYOFFICE-QA/onlyoffice_file_helper'
   s.metadata = {
     'bug_tracker_uri' => "#{s.homepage}/issues",
     'changelog_uri' => "#{s.homepage}/blob/master/CHANGELOG.md",
