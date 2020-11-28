@@ -19,6 +19,7 @@
 * Fix new rubocop issues after update to 1.4.2
 * Fix new `rubocop-performance` issue
 * Moved repo to `ONLYOFFICE-QA` org
+* Minor refactor in `rake release_github_rubygems`
 
 ### Fixes
 
