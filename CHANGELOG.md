@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Remove `codecov` support, use `simplcecov` in CI
+
 ## 0.4.0 (2020-11-28)
 
 ### New Features
