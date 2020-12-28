@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `ruby-3.0` to CI
+
 ### Changes
 
 * Remove `codecov` support, use `simplcecov` in CI
