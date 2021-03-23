@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe OnlyofficeFileHelper, '.list_file_in_directory' do
   it 'list_file_in_directory not empty' do
-    expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/bin').length).to be > 0
+    expect(OnlyofficeFileHelper::FileHelper.list_file_in_directory('/var').length).to be > 0
   end
 
   it 'list_file_in_directory with extension' do
