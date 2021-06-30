@@ -13,6 +13,6 @@ task :release_github_rubygems do
   gem_name = "#{OnlyofficeFileHelper::NAME}-"\
              "#{OnlyofficeFileHelper::VERSION}.gem"
   sh('gem push --key github '\
-   '--host https://rubygems.pkg.github.com/ONLYOFFICE-QA '\
-   "pkg/#{gem_name}")
+     '--host https://rubygems.pkg.github.com/ONLYOFFICE-QA '\
+     "pkg/#{gem_name}")
 end

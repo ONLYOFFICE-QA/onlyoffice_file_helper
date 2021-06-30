@@ -21,9 +21,9 @@ end
 # @return [String] html string with iframe
 def iframe_html_string
   '<iframe src="https://doc-linux-autotest.teamlab.info'\
-  '/products/files/doceditor.aspx?fileid=2019451&'\
-  'doc=cW5kWFBDUFlRazBRcE5CekJBU3NsVDZhUUcyY'\
-  'S9oMHlhaGQrd3BSVU5qND0_IjIwMTk0NTEi0'\
-  '&action=embedded" height="100%" width="100%" '\
-  'frameborder="0" scrolling="no" allowtransparency></iframe>'
+    '/products/files/doceditor.aspx?fileid=2019451&'\
+    'doc=cW5kWFBDUFlRazBRcE5CekJBU3NsVDZhUUcyY'\
+    'S9oMHlhaGQrd3BSVU5qND0_IjIwMTk0NTEi0'\
+    '&action=embedded" height="100%" width="100%" '\
+    'frameborder="0" scrolling="no" allowtransparency></iframe>'
 end
