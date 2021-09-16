@@ -11,21 +11,6 @@ RSpec.describe OnlyofficeFileHelper::StringHelper do
     expect(described_class.generate_random_number('Test')).not_to be_empty
   end
 
-  it 'StringHelper.get_result_string_of_comparison' do
-    expect(described_class.get_result_string_of_comparison('Test',
-                                                           'Data', 'Data')).to eq('')
-  end
-
-  it 'StringHelper.get_result_string_of_comparison for digits' do
-    expect(described_class.get_result_string_of_comparison('Digits',
-                                                           0.5, 0.5)).to eq('')
-  end
-
-  it 'StringHelper.get_result_string_of_comparison for different strings' do
-    expect(described_class.get_result_string_of_comparison('Test',
-                                                           'Data', 'Data2')).not_to be_empty
-  end
-
   it 'StringHelper.to_bool check true' do
     expect(described_class.to_bool('true')).to be_truthy
   end

@@ -4,6 +4,13 @@ require 'spec_helper'
 
 RSpec.describe OnlyofficeFileHelper::FileHelper,
                '.read_file_to_string' do
+  it 'read_file_to_string raise an error for nonexisting file' do
+    fake_file = '/foo'
+    expect do
+      described_class.read_file_to_string(fake_file)
+    end.to raise_error(/File not found: #{fake_file}/)
+  end
+
   it 'create_file_with_content without parameters' do
     file_path = described_class.create_file_with_content
     expect(described_class.read_file_to_string(file_path)).to be_empty

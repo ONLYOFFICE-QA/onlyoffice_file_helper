@@ -34,7 +34,8 @@ module OnlyofficeFileHelper
       # Wait for downloading file
       # @param path [String] path to waiting download
       # @param timeout [Integer] timeout to wait
-      # @return [True, False] result
+      # @raise [StandardError] exception if file not downloaded during timeout
+      # @return [True] always successful, if not - raising Exception
       def wait_file_to_download(path, timeout = 300)
         timer = 0
         OnlyofficeLoggerHelper.log("Start waiting to download file: #{path}")
@@ -45,18 +46,16 @@ module OnlyofficeFileHelper
           raise "Timeout #{timeout} for downloading file #{path} is exceed" if timer > timeout
         end
         sleep 1
-        timer <= timeout
+        true
       end
 
       # Extract archive to folder
       # @param path_to_archive [String] path of file
-      # @param path_to_extract [String] result path
       # @return [Void]
-      def extract_to_folder(path_to_archive,
-                            path_to_extract = path_to_archive.chomp(File.basename(path_to_archive)))
-        raise "File not found: #{path_to_archive}" unless wait_file_to_download(path_to_archive)
+      def extract_to_folder(path_to_archive)
+        wait_file_to_download(path_to_archive)
 
-        path_to_extract += '/' unless path_to_extract[-1] == '/'
+        path_to_extract = path_to_archive.chomp(File.basename(path_to_archive))
         path_to_file = path_to_extract + File.basename(path_to_archive)
         Zip::File.open(path_to_file) do |zip_file|
           zip_file.each do |file|

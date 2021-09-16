@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-SimpleCov.start
-
+SimpleCov.start do
+  enable_coverage :branch
+end
 require 'bundler/setup'
 require 'onlyoffice_file_helper'
 

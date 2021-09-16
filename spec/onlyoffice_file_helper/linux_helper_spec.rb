@@ -3,13 +3,6 @@
 require 'spec_helper'
 
 RSpec.describe OnlyofficeFileHelper::LinuxHelper do
-  it 'Download file' do
-    file_url = 'https://file-examples.com/wp-content/uploads/2017/02/file_example_CSV_5000.csv'
-    downloaded = Tempfile.new('onlyoffice_file_helper')
-    described_class.download_file(file_url, downloaded.path)
-    expect(File.size(downloaded.path)).to be > 1_000
-  end
-
   it 'get_user_name' do
     expect(described_class.get_user_name).not_to be_empty
   end
