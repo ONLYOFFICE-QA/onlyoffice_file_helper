@@ -5,6 +5,7 @@
 ### New Features
 
 * Add `ruby-3.0` to CI
+* New method `OnlyofficeFileHelper.filename_from_path`
 
 ### Changes
 
@@ -13,6 +14,7 @@
 * Add `simplecov` branch coverage
 * Minor refactoring in `OnlyofficeFileHelper.extract_to_folder`
 * Remove second unused argument from `OnlyofficeFileHelper.extract_to_folder`
+* Deprecate `OnlyofficeFileHelper.get_filename` in favor of `OnlyofficeFileHelper.filename_from_path`
 
 ## 0.4.0 (2020-11-28)
 
