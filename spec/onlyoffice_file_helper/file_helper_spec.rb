@@ -28,8 +28,4 @@ RSpec.describe OnlyofficeFileHelper::FileHelper do
     described_class.output_string_to_file("a\na", '/tmp/read_array.file')
     expect(described_class.read_array_from_file('/tmp/read_array.file')).to eq(%w[a a])
   end
-
-  it 'extract_to_folder' do
-    expect(described_class.extract_to_folder('./spec/data/test.zip')).not_to be_nil
-  end
 end
