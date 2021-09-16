@@ -52,11 +52,10 @@ module OnlyofficeFileHelper
       # Extract archive to folder
       # @param path_to_archive [String] path of file
       # @return [Void]
-      def extract_to_folder(path_to_archive,
-                            path_to_extract = path_to_archive.chomp(File.basename(path_to_archive)))
+      def extract_to_folder(path_to_archive)
         wait_file_to_download(path_to_archive)
 
-        path_to_extract += '/' unless path_to_extract[-1] == '/'
+        path_to_extract = path_to_archive.chomp(File.basename(path_to_archive))
         path_to_file = path_to_extract + File.basename(path_to_archive)
         Zip::File.open(path_to_file) do |zip_file|
           zip_file.each do |file|
