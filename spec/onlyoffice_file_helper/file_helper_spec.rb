@@ -7,10 +7,6 @@ RSpec.describe OnlyofficeFileHelper::FileHelper do
     expect(OnlyofficeFileHelper::VERSION).not_to be nil
   end
 
-  it 'get_filename' do
-    expect(described_class.get_filename('/usr/share/fonts')).to eq('fonts')
-  end
-
   it 'delete_directory' do
     described_class.create_folder('/tmp/tmp')
     expect(described_class.delete_directory('/tmp/tmp')).not_to be_nil

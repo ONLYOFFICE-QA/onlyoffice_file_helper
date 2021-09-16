@@ -9,6 +9,7 @@
 ### Changes
 
 * Remove `codecov` support, use `simplcecov` in CI
+* Increase test coverage
 
 ## 0.4.0 (2020-11-28)
 
