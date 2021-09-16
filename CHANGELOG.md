@@ -11,6 +11,7 @@
 * Remove `codecov` support, use `simplcecov` in CI
 * Increase test coverage
 * Add `simplecov` branch coverage
+* Minor refactoring in `OnlyofficeFileHelper.extract_to_folder`
 
 ## 0.4.0 (2020-11-28)
 
