@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe OnlyofficeFileHelper::StringHelper, '#get_result_string_of_comparison' do
+RSpec.describe OnlyofficeFileHelper::StringHelper, '.get_result_string_of_comparison' do
   it 'StringHelper.get_result_string_of_comparison' do
     expect(described_class.get_result_string_of_comparison('Test',
                                                            'Data', 'Data')).to eq('')

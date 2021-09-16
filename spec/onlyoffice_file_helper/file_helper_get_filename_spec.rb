@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe OnlyofficeFileHelper::FileHelper, '#get_filename' do
+RSpec.describe OnlyofficeFileHelper::FileHelper, '.get_filename' do
   it 'get_filename is correct for correct data' do
     expect(described_class.get_filename('/usr/share/fonts')).to eq('fonts')
   end
