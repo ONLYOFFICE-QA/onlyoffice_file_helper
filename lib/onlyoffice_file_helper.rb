@@ -23,13 +23,25 @@ module OnlyofficeFileHelper
 
     class << self
       # Return name of file from full path
-      # @param [true, false] keep_extension keep extension in result?
+      # @param [String] file_path to get name
+      # @param [Boolean] keep_extension keep extension in result?
       # @return [Sting] name of file, with extension or not
-      def get_filename(file_path, keep_extension = true)
+      def filename_from_path(file_path, keep_extension: true)
         name = Pathname.new(file_path).basename
         name = File.basename(name, File.extname(name)) unless keep_extension
         name.to_s
       end
+
+      # Return name of file from full path
+      # @param [String] file_path full file path
+      # @param [true, false] keep_extension keep extension in result?
+      # @return [Sting] name of file, with extension or not
+      def get_filename(file_path, keep_extension = true)
+        filename_from_path(file_path, keep_extension: keep_extension)
+      end
+
+      extend Gem::Deprecate
+      deprecate :get_filename, :filename_from_path, 2025, 1
 
       # Wait for downloading file
       # @param path [String] path to waiting download
