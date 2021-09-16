@@ -3,9 +3,10 @@
 require 'spec_helper'
 
 RSpec.describe OnlyofficeFileHelper::FileHelper, '.read_array_from_file' do
+  let(:file) { "#{Dir.pwd}/spec/data/read_array_from_file_data.file" }
+
   it 'read_array_from_file' do
-    described_class.output_string_to_file("a\na", '/tmp/read_array.file')
-    expect(described_class.read_array_from_file('/tmp/read_array.file')).to eq(%w[a a])
+    expect(described_class.read_array_from_file(file)).to eq(%w[a a])
   end
 
   it 'read_array_from_file from non-existing file return empty array' do
