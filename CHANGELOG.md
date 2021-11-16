@@ -5,6 +5,7 @@
 ### Changes
 
 * Require `mfa` for releasing gem
+
 ## 0.5.0 (2020-11-28)
 
 ### New Features
