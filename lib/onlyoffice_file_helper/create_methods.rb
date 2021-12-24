@@ -17,7 +17,7 @@ module OnlyofficeFileHelper
     # @param [String] content content of file
     # @return [String] path to created file
     def create_file_with_content(file_path: '/tmp/temp_file.ext', content: '')
-      File.open(file_path, 'w') { |f| f.write(content) }
+      File.write(file_path, content)
       OnlyofficeLoggerHelper.log("Created file: #{file_path} with content: #{content}")
       file_path
     end
