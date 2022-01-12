@@ -2,11 +2,16 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `ruby-3.1` to CI
+
 ### Changes
 
 * Require `mfa` for releasing gem
 * Fix issues from new rubocop version `v1.24.0`
 * Remove deprecated `OnlyofficeFileHelper.get_filename`
+* Remove `ruby-2.5` from CI since it's EOLed
 
 ## 0.5.0 (2020-11-28)
 
