@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe OnlyofficeFileHelper::FileHelper do
   it 'has a version number' do
-    expect(OnlyofficeFileHelper::VERSION).not_to be nil
+    expect(OnlyofficeFileHelper::VERSION).not_to be_nil
   end
 
   it 'delete_directory' do
