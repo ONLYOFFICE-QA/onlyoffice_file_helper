@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    onlyoffice_file_helper (0.5.0)
+    onlyoffice_file_helper (1.0.0)
       onlyoffice_logger_helper (~> 1)
       rubyzip (~> 2)
 
