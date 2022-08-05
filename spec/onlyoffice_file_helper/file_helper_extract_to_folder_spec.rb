@@ -7,7 +7,7 @@ RSpec.describe OnlyofficeFileHelper::FileHelper, '.extract_to_folder' do
   let(:extracted_file) { "#{Dir.pwd}/spec/data/test" }
 
   before do
-    File.delete(extracted_file) if File.exist?(extracted_file)
+    FileUtils.rm_f(extracted_file)
   end
 
   it 'extract_to_folder correctly works' do

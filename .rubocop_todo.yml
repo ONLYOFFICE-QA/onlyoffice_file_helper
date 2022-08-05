@@ -5,11 +5,3 @@
 # one by one as the offenses are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
-
-# Offense count: 5
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Lint/NonAtomicFileOperation:
-  Exclude:
-    - 'lib/onlyoffice_file_helper/directory_methods.rb'
-    - 'spec/onlyoffice_file_helper/file_helper_extract_to_folder_spec.rb'
-    - 'spec/onlyoffice_file_helper/wait_file_to_download_spec.rb'
