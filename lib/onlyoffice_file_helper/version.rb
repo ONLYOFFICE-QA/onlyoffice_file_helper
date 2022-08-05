@@ -2,5 +2,5 @@
 
 module OnlyofficeFileHelper
   # @return [String] version of gem
-  VERSION = '0.5.0'
+  VERSION = '1.0.0'
 end
