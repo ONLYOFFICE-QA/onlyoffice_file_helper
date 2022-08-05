@@ -10,7 +10,7 @@ module OnlyofficeFileHelper
     # @param path [String] directory to delete
     # @return [Void]
     def delete_directory(path)
-      FileUtils.rm_rf(path) if Dir.exist?(path)
+      FileUtils.rm_rf(path)
     end
 
     # List of files in directory as array

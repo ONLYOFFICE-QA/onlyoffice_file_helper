@@ -6,7 +6,7 @@ RSpec.describe OnlyofficeFileHelper, '.wait_file_to_download' do
   let(:file_to_wait) { '/tmp/wait_file_download.file' }
 
   before do
-    File.delete(file_to_wait) if File.exist?(file_to_wait)
+    FileUtils.rm_f(file_to_wait)
   end
 
   it 'wait_file_to_download will succeed' do
