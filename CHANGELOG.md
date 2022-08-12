@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+### New Features
+
+* New method `OnlyofficeFileHelper.copy_file`
+* New method `OnlyofficeFileHelper.move_file`
+* New method `OnlyofficeFileHelper.file_size`
+
 ## 1.0.0 (2022-08-06)
 
 ### New Features
