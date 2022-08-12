@@ -7,6 +7,7 @@ require 'onlyoffice_logger_helper'
 require 'find'
 require 'onlyoffice_file_helper/create_methods'
 require 'onlyoffice_file_helper/directory_methods'
+require 'onlyoffice_file_helper/file_methods'
 require 'onlyoffice_file_helper/read_methods'
 require 'onlyoffice_file_helper/version'
 require 'onlyoffice_file_helper/linux_helper'
@@ -20,6 +21,7 @@ module OnlyofficeFileHelper
     extend CreateMethods
     extend DirectoryMethods
     extend ReadMethods
+    extend FileMethods
 
     class << self
       # Return name of file from full path

@@ -6,6 +6,8 @@ SimpleCov.start do
 end
 require 'bundler/setup'
 require 'onlyoffice_file_helper'
+require 'tempfile'
+require 'securerandom'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
