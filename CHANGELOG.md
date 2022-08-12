@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 1.1.0 (2022-08-12)
+
 ### New Features
 
 * New method `OnlyofficeFileHelper.copy_file`
