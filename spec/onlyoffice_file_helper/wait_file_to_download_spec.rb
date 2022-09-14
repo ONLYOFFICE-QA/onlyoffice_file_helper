@@ -14,7 +14,7 @@ RSpec.describe OnlyofficeFileHelper, '.wait_file_to_download' do
       sleep 5
       OnlyofficeFileHelper::FileHelper.output_string_to_file('a', file_to_wait)
     end
-    OnlyofficeFileHelper::FileHelper.wait_file_to_download(file_to_wait)
+    expect(OnlyofficeFileHelper::FileHelper.wait_file_to_download(file_to_wait)).to be_truthy
   end
 
   it 'wait_file_to_download will raise on non-existing file' do
