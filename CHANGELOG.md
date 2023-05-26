@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Fixes
+
+* Fix csv file url in specs
+
 ## 1.1.0 (2022-08-12)
 
 ### New Features
