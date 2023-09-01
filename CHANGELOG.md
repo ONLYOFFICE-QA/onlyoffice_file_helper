@@ -2,9 +2,17 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `ruby-3.2` to CI
+
 ### Fixes
 
 * Fix csv file url in specs
+
+### Changes
+
+* Drop `ruby-2.7` support, since it's EOLed
 
 ## 1.1.0 (2022-08-12)
 
