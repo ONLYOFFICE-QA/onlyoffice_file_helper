@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   }
   s.email = ['shockwavenn@gmail.com']
   s.files = Dir['lib/**/*']
+  s.add_runtime_dependency('csv', '~> 3')
   s.add_runtime_dependency('onlyoffice_logger_helper', '~> 1')
   s.add_runtime_dependency('rubyzip', '~> 2')
   s.license = 'AGPL-3.0'
