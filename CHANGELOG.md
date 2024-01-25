@@ -13,6 +13,7 @@
 
 * Fix csv file url in specs
 * Fix warning for license name in gemspec
+* Fix `gem` warning about duplicate metadata source/homepage
 
 ### Changes
 
