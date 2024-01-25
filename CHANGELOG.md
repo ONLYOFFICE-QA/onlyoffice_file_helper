@@ -12,6 +12,7 @@
 ### Fixes
 
 * Fix csv file url in specs
+* Fix warning for license name in gemspec
 
 ### Changes
 
