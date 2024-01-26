@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Remove `csv` dependency, since it's not used
+
 ## 2.0.0 (2024-01-25)
 
 ### New Features
