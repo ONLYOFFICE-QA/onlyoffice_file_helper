@@ -5,6 +5,8 @@
 ### Changes
 
 * Remove `csv` dependency, since it's not used
+* Remove `open-uri` code requirement, since it's not used
+* Move `require 'find'` to correct source file
 
 ## 2.0.0 (2024-01-25)
 

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'find'
+
 module OnlyofficeFileHelper
   # Methods used to work with directories
   module DirectoryMethods

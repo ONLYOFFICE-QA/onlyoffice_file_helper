@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 require 'zip'
-require 'open-uri'
 require 'onlyoffice_logger_helper'
-require 'find'
 require 'onlyoffice_file_helper/create_methods'
 require 'onlyoffice_file_helper/directory_methods'
 require 'onlyoffice_file_helper/file_methods'
