@@ -12,15 +12,15 @@ RSpec.describe OnlyofficeFileHelper, '.wait_file_to_download' do
   it 'wait_file_to_download will succeed' do
     Thread.start do
       sleep 5
-      OnlyofficeFileHelper::FileHelper.output_string_to_file('a', file_to_wait)
+      described_class::FileHelper.output_string_to_file('a', file_to_wait)
     end
-    expect(OnlyofficeFileHelper::FileHelper.wait_file_to_download(file_to_wait)).to be_truthy
+    expect(described_class::FileHelper.wait_file_to_download(file_to_wait)).to be_truthy
   end
 
   it 'wait_file_to_download will raise on non-existing file' do
     file = '/tmp/non-existing.file'
     expect do
-      OnlyofficeFileHelper::FileHelper.wait_file_to_download(file, 5)
+      described_class::FileHelper.wait_file_to_download(file, 5)
     end.to raise_error(/Timeout/)
   end
 end

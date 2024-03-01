@@ -4,15 +4,15 @@ require 'spec_helper'
 
 RSpec.describe OnlyofficeFileHelper, '.create_folder' do
   before do
-    OnlyofficeFileHelper::FileHelper.delete_directory('/tmp/tmp.dir')
+    described_class::FileHelper.delete_directory('/tmp/tmp.dir')
   end
 
   it 'create_folder' do
-    expect(OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp.dir')).not_to be_nil
+    expect(described_class::FileHelper.create_folder('/tmp/tmp.dir')).not_to be_nil
   end
 
   it 'create_folder second time' do
-    OnlyofficeFileHelper::FileHelper.output_string_to_file('a', '/tmp/tmp.dir')
-    expect(OnlyofficeFileHelper::FileHelper.create_folder('/tmp/tmp.dir')).to be_truthy
+    described_class::FileHelper.output_string_to_file('a', '/tmp/tmp.dir')
+    expect(described_class::FileHelper.create_folder('/tmp/tmp.dir')).to be_truthy
   end
 end
